@@ -24,7 +24,7 @@ public class DataStructuresJava {
         binarySearchTree.insert(2);
         binarySearchTree.insert(3);
         
-        System.err.println(binarySearchTree.getRoot());
+        System.err.println(binarySearchTree.search(3));
     }
     
 }

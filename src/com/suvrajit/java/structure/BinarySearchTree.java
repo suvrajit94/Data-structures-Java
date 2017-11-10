@@ -28,7 +28,19 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree <
 
     @Override
     public boolean search(E key) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return searchRecursively(root, key);
+    }
+    
+    private boolean searchRecursively (Node root, E key){
+        if (root== null){
+            return false;
+        }
+        
+        if (root.key == key){
+            return true;
+        }
+        
+        return (searchRecursively(root.left, key) || searchRecursively(root.right, key));
     }
     
     private Node insertRecursively(Node root, E key){
