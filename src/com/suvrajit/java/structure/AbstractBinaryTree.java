@@ -9,17 +9,12 @@ package com.suvrajit.java.structure;
  *
  * @author I327917
  */
-public class Node<E> {
-    E key;
-    Node left, right;
+public abstract class AbstractBinaryTree<E> {
+    Node node;
     
-    public Node(E item){
-        this.key = item;
-        this.left = null;
-        this.right = null;
-    }
+    public abstract void insert(E key);
     
-    Node (){
-        
-    }
+    public abstract boolean remove (E key);
+    
+    public abstract boolean search(E key);
 }
