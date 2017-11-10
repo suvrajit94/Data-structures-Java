@@ -5,6 +5,8 @@
  */
 package com.suvrajit.java;
 
+import com.suvrajit.java.structure.BinarySearchTree;
+
 /**
  *
  * @author I327917
@@ -16,6 +18,13 @@ public class DataStructuresJava {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>();
+        
+        binarySearchTree.insert(2);
+        binarySearchTree.insert(3);
+        
+        System.err.println(binarySearchTree.getRoot());
     }
     
 }

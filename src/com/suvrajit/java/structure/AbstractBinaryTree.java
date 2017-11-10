@@ -10,7 +10,7 @@ package com.suvrajit.java.structure;
  * @author I327917
  */
 public abstract class AbstractBinaryTree<E> {
-    Node node;
+    protected Node root = null;
     
     public abstract void insert(E key);
     
