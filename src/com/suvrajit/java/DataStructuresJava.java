@@ -23,8 +23,16 @@ public class DataStructuresJava {
         
         binarySearchTree.insert(2);
         binarySearchTree.insert(3);
+        binarySearchTree.insert(1);
+        binarySearchTree.insert(4);
         
-        System.err.println(binarySearchTree.search(3));
+        System.err.println(binarySearchTree._traverseInorder());
+        
+        System.err.println(binarySearchTree.remove(2));
+        
+        System.err.println(binarySearchTree._traverseInorder());
+        
+        System.err.println(binarySearchTree.getRoot());
     }
     
 }
