@@ -19,6 +19,13 @@ public class Node<E> {
         this.right = null;
     }
     
+    public Node (Node<E> node){
+        this.key = node.key;
+        this.left = node.left;
+        this.right = node.right;
+    }
+    
+    
     Node (){
         
     }
