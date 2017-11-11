@@ -51,11 +51,17 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree<E
     }
     
     private Node<E> removeRecursively(Node<E> root, E key) {
-
+        
+        /** 
+         * if root is null return
+         */
         if (root == null) {
             return root;
         }
         
+        /** 
+         * traverse to the desired node
+         */ 
         if (key.compareTo(root.key) < 0){
             root.left = removeRecursively(root.left, key);
         } else if (key.compareTo(root.key) > 0){
@@ -66,6 +72,7 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree<E
             // if key is in a leaf node
             root.key = null;
             return root;
+            
         }
 
         if (key.compareTo(root.key) == 0 && ((root.left == null) || (root.right == null))) {
