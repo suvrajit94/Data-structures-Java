@@ -24,7 +24,8 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree<E
 
     @Override
     public boolean remove(E key) {
-        return removeRecursively(root, key);
+        root = removeRecursively(root, key);
+        return true;
     }
 
     @Override
@@ -49,16 +50,29 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree<E
         return list;
     }
     
-    private boolean removeRecursively(Node root, E key) {
-
+    private Node<E> removeRecursively(Node<E> root, E key) {
+        
+        /** 
+         * if root is null return
+         */
         if (root == null) {
-            return false;
+            return root;
         }
-
+        
+        /** 
+         * traverse to the desired node
+         */ 
+        if (key.compareTo(root.key) < 0){
+            root.left = removeRecursively(root.left, key);
+        } else if (key.compareTo(root.key) > 0){
+            root.right = removeRecursively(root.right, key);
+        }else {
+        
         if (key.compareTo(root.key) == 0 && (root.left == null) && (root.right == null)) {
             // if key is in a leaf node
             root.key = null;
-            return true;
+            return root;
+            
         }
 
         if (key.compareTo(root.key) == 0 && ((root.left == null) || (root.right == null))) {
@@ -72,16 +86,19 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree<E
             return _removeInternalNode(root, key);
         }
         
-        return false;
+        }
+        return root;
     }
 
-    private boolean _removeInternalNode(Node<E> root, E key) {
+    private Node<E> _removeInternalNode(Node<E> root, E key) {
         
         E inoderSuccessor = _getInorderSuccessor(root.right);
         
         root.key = inoderSuccessor;
  
-        return removeRecursively(root.right, root.key);
+        root.right = removeRecursively(root.right, root.key);
+        
+        return root;
     }
 
     private E _getInorderSuccessor(Node root) {
@@ -94,12 +111,12 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree<E
         return value;
     }
 
-    private boolean _removeSingleChild(Node parent, Node child, E key) {
-        parent = child;
+    private Node<E> _removeSingleChild(Node<E> parent, Node<E> child, E key) {
+        parent = new Node(child);
         child.key = null;
         child.left = child.right = null;
         
-        return true;
+        return parent;
     }
 
     private boolean searchRecursively(Node root, E key) {
