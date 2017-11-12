@@ -18,8 +18,8 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree<E
         root = insertRecursively(root, key);
     }
 
-    public E getRoot() {
-        return (E) root.key;
+    public Node<E> getRoot() {
+        return root;
     }
 
     @Override
@@ -115,7 +115,6 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree<E
         parent = new Node(child);
         child.key = null;
         child.left = child.right = null;
-        
         return parent;
     }
 

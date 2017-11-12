@@ -6,6 +6,8 @@
 package com.suvrajit.java;
 
 import com.suvrajit.java.structure.BinarySearchTree;
+import com.suvrajit.java.structure.Node;
+import com.suvrajit.java.util.BinarySearchTreeUtil;
 
 /**
  *
@@ -18,7 +20,7 @@ public class DataStructuresJava {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        BinarySearchTreeUtil binarySearchTreeUtil = new BinarySearchTreeUtil();
         BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>();
         
         binarySearchTree.insert(2);
@@ -26,13 +28,14 @@ public class DataStructuresJava {
         binarySearchTree.insert(1);
         binarySearchTree.insert(4);
         
-        System.err.println(binarySearchTree._traverseInorder());
-        
-        System.err.println(binarySearchTree.remove(2));
-        
-        System.err.println(binarySearchTree._traverseInorder());
-        
-        System.err.println(binarySearchTree.getRoot());
+//        System.err.println(binarySearchTree._traverseInorder());
+//        
+//        System.err.println(binarySearchTree.remove(2));
+//        
+//        System.err.println(binarySearchTree._traverseInorder());
+//        
+//        System.err.println(binarySearchTree.getRoot());
+        binarySearchTreeUtil._convertBSTtoBinaryTreeAddedGreaterKeys(binarySearchTree);
     }
     
 }

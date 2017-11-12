@@ -10,8 +10,8 @@ package com.suvrajit.java.structure;
  * @author I327917
  */
 public class Node<E> {
-    E key;
-    Node left, right;
+    public E key;
+    public Node left, right;
     
     public Node(E item){
         this.key = item;
