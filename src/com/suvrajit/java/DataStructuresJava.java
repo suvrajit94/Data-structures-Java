@@ -35,7 +35,7 @@ public class DataStructuresJava {
 //        System.err.println(binarySearchTree._traverseInorder());
 //        
 //        System.err.println(binarySearchTree.getRoot());
-        binarySearchTreeUtil._convertBSTtoBinaryTreeAddedGreaterKeys(binarySearchTree);
+        binarySearchTreeUtil._getMaxForNnode(binarySearchTree, 4);
     }
     
 }

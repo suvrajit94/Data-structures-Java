@@ -29,34 +29,73 @@ public class BinarySearchTreeUtil {
     
     public <E extends Comparable> void _convertBSTtoBinaryTreeAddedGreaterKeys (BinarySearchTree<E> binarySearchTree){
         /**
-         * Converts a BST to a Binary Tree such that sum of all greater keys is added to every key
+         * Converts a BST to a Binary Tree such that sum of all greater keys is added to every key -- greater node tree
          */
         int sum = 0;
         
         _addGreaterKey(binarySearchTree.getRoot(), sum);
     }
     
-    public <E extends Comparable> Node<E> _addGreaterKey(Node<E> root, int sum){
+    private <E extends Comparable> Node<E> _addGreaterKey(Node<E> root, int sum){
         
         if (root == null){
             return root;
         }
-        
         /**
          *  traverse to the right most child
          */
-        
         root.right = _addGreaterKey(root.right, sum);
-        
         System.err.println(root.key);
-        
         /**
          * sum = sum + root.key;
          */
-        
         root.left = _addGreaterKey(root.left, sum);
-        
         return root;
     }
+    
+    public <E extends Comparable> E _getMaxForNnode(BinarySearchTree binarySearchTree, E n){
+        
+        Node<E> node = _getMaxForNnodeUtil(binarySearchTree.getRoot(),n);
+        
+        if (node != null){
+            System.err.println(node.key);
+            return node.key;
+        }
+        return null;
+    }
+    
+    private <E extends Comparable> Node<E> _getMaxForNnodeUtil(Node<E> root, E n){
+        return null;
+    } 
+    
+    private <E extends Comparable> Node<E> _searchImpl1(Node<E> root, E n){
+        while (root != null){
+            if (n.compareTo(root.key) > 0){
+                root = _searchImpl1(root.right, n);
+            } else if(n.compareTo(root.key) < 0){
+                root.left = _searchImpl1(root.left, n);
+            } else if (n.compareTo(root.key) == 0) {
+//                System.err.println(root.key);
+                return root;
+            }
+        }
+        System.err.println("null returned");
+        return null;
+    } 
+    
+      private <E extends Comparable> Node<E> _searchImpl2(Node<E> root, E n){
+        while (root != null){
+            if (n.compareTo(root.key) > 0){
+                root = root.right;
+            } else if(n.compareTo(root.key) < 0){
+                root.left = root.left;
+            } else if (n.compareTo(root.key) == 0) {
+//                System.err.println(root.key);
+                return root;
+            }
+        }
+        System.err.println("null returned");
+        return null;
+    } 
     
 }
