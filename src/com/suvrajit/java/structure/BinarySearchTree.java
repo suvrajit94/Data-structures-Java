@@ -22,6 +22,11 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree<E
         return root;
     }
 
+    public void setRoot(Node root) {
+        this.root = root;
+    }
+
+    
     @Override
     public boolean remove(E key) {
         root = removeRecursively(root, key);
@@ -101,12 +106,12 @@ public class BinarySearchTree<E extends Comparable> extends AbstractBinaryTree<E
         return root;
     }
 
-    private E _getInorderSuccessor(Node root) {
-        E value = (E) root.key;
+    private E _getInorderSuccessor(Node currentNode) {
+        E value = (E) currentNode.key;
 
-        while (root.left != null) {
-            value = (E) root.left.key;
-            root = root.left;
+        while (currentNode.left != null) {
+            value = (E) currentNode.left.key;
+            currentNode = currentNode.left;
         }
         return value;
     }
